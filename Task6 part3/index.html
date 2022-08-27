@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        
+        // Use 10 of Objects predefined methods and explain them. 
+        // Create an object:
+        var person={
+        firstName: "Linda",
+        lastName: "Muhammed",
+        age: 23,
+        gender: "Female",
+        graduationYear: 2021,
+        fullName: function(){
+            return (this.firstName + " " + this.lastName).toUpperCase();
+        }
+        };
+
+        // Display some data from the object:
+
+        // 1) Dot notation => print: Female
+        document.write(person.gender); 
+
+        // 2) Bracket notation => print: 2021
+        document.write(person["graduationYear"]);
+        
+        // 3) this is the person object that "owns" the fullName function (access an object method by objectName.methodName)
+        document.write(person.fullName());
+        //After function
+        document.write(person["fullName"]());
+
+        // 4) Setting a new property
+        person.city= "Alexandria";
+        document.write(person["city"]);
+        person["email"] = "lindamuhammed@mail.com";
+        document.write(person.email);
+        console.log(person);
+
+        // 5) Updating existing property
+        person.age=24;
+        document.write(person.age);
+
+         // 6) Deleting property
+         delete person.graduationYear;
+         
+         // 7) copy and own properties from a source object to a target object.
+         let user=Object.assign({city: 'Aswan'},person);
+         console.log("Person :", person );
+         console.log("user :", user);
+
+//##########################################################################################################################//
+//##########################################################################################################################//
+
+
+        // Use 10 of Arrays predefined methods and explain them. 
+        // Create an array:
+        let evenNums = [0,2,4,6,8,10];
+        let oddNums =[];
+
+        // 1) joins all array elements into a string
+        console.log(evenNums.join(" * "));
+
+        // 2) The pop() method removes the last element from an array:
+        console.log(evenNums.pop()); // prints: 10
+
+        // 3) Adding elements to the oddNums array
+        oddNums.push(1,3,5,7,9,11);
+        console.log(oddNums);
+
+        // 4) The slice() method slices out a piece of an array into a new array.
+        // This example slices out a part of an array starting from array element 1 ("Orange"):
+        const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        const citrus = fruits.slice(1); // ["Orange", "Lemon", "Apple", "Mango"];
+        console.log(citrus);
+
+        // 5) select elements from the start argument, and up to (but not including) the end argument.
+        const citrus2 = fruits.slice(1, 3);
+        console.log(citrus2);
+        
+        // 6) convert an array to a comma separated string 
+        console.log(fruits.toString());
+
+        // 7) adding new items to an array
+        fruits.splice(2, 0,"Kiwi");
+        console.log(fruits);
+         
+        // 8) remove items and put new items instead of them
+        const fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+        fruits2.splice(2, 2, "Lemon", "Kiwi"); // first 2 is the start & second 2 argument to remove two elements
+        console.log(fruits2);
+
+        // 9) removing the first array element and "shifts" all other elements to a lower index
+        evenNums.shift();
+        console.log(evenNums);
+
+        // 10) The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements
+        evenNums.unshift(0);
+        console.log(evenNums);
+
+        // 11) Using delete leaves undefined holes in the array.
+        delete oddNums[1];
+        console.log(oddNums); // prints:  [1, empty, 5, 7, 9, 11]
+
+        // 12) Merging (Concatenating) Arrays
+         const numbers= evenNums.concat(oddNums);
+         console.log(numbers);
+
+ //##########################################################################################################################//
+ //##########################################################################################################################//
+
+     // Write a nested function and explain the closure -> lexical  environment.
+
+     function display(){
+    var name= "Linda";       // name is a local variable created by display
+    function displayName()  // displayName() is the inner function, a closure
+    {
+        console.log(name);  // use variable declared in the parent function
+    }
+    displayName();
+     }
+     display();
+
+     console.log(display());
+    
+</script>
+</head>
+<body>
+</body>
+</html>
